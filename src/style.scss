@@ -104,9 +104,19 @@ body {
     @include respond(desktop) {
       width: 50%;
     }
+    .bg-pattern {
+      display: none;
+      @include respond(desktop) {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(35%, -15%) scale(1.4);
+      }
+    }
     .illustration-box {
       display: none;
-      text-shadow: 0 2rem 4rem rgba($color: #000000, $alpha: 0.3);
+      text-shadow: 0 2rem 4rem rgba($color: #000000, $alpha: 0.5);
 
       @include respond(desktop) {
         display: inline-block;
@@ -114,6 +124,10 @@ body {
         top: 50%;
         right: 0;
         transform: translate(50%, -50%);
+
+        &--hover {
+          transform: translate(60%, -50%);
+        }
       }
     }
 
