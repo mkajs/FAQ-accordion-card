@@ -1,0 +1,214 @@
+/// Variables
+
+///Text
+$Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+$Soft-red: hsl(14, 88%, 65%);
+///Gradient
+$Soft-violet: hsl(273, 75%, 66%);
+$Soft-blue: hsl(240, 73%, 65%);
+///Text
+$Very-dark-grayish-blue: hsl(237, 12%, 33%);
+$Dark-grayish-blue: #787887;
+///Dividers
+$Light-grayish-blue: hsl(240, 5%, 91%);
+
+//////////////////////////////////////////////////////////////
+///Responsive function
+@mixin respond($breakpoint) {
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 56.25em) {
+      @content;
+    } //900px
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+/// Resets
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  transition: all 0.3s;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 50%; // 1rem = 8px, 8px/16px = 50%
+
+  @include respond(desktop) {
+    //  600 < width?
+    font-size: 62.5%; //1 rem = 10px, 10/16 = 62.5%
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+/// Typography
+
+@font-face {
+  font-family: "iran-sans";
+  src: url("/src/fonts/IRANSansWeb.ttf");
+}
+@font-face {
+  font-family: "IRANSansWeb(FaNum)";
+  src: url("/src/fonts/IRANSansWeb\(FaNum\).ttf");
+}
+
+body {
+  font-family: "iran-sans", sans-serif;
+  background-image: linear-gradient(to bottom, $Soft-violet, $Soft-blue);
+  color: $Dark-grayish-blue;
+
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+//////////main styles
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+.fa-num {
+  font-family: "IRANSansWeb(FaNum)";
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 33rem;
+  border-radius: 2.2rem;
+  background-color: #fff;
+  box-shadow: 0 2rem 4rem rgba($color: #000000, $alpha: 0.3);
+  padding: 13rem 2.2rem 4.8rem;
+  position: relative;
+
+  @include respond(desktop) {
+    flex-direction: row;
+    max-width: 92.3rem;
+    width: 92.3rem;
+    padding: 6.5rem 8rem;
+  }
+
+  .illustration {
+    @include respond(desktop) {
+      width: 50%;
+    }
+    .illustration-box {
+      display: none;
+      text-shadow: 0 2rem 4rem rgba($color: #000000, $alpha: 0.3);
+
+      @include respond(desktop) {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(50%, -50%);
+      }
+    }
+
+    .illustration-online {
+      width: 80%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -53%);
+
+      @include respond(desktop) {
+        width: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(10%, -50%) rotateY(180deg);
+      }
+    }
+  }
+
+  .accordian {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.8rem;
+    @include respond(desktop) {
+      align-items: flex-start;
+      width: 50%;
+    }
+    .accordian__header {
+      margin-bottom: 1.6rem;
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: $Very-dark-desaturated-blue;
+    }
+
+    .accordian__list {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      .accordian__item {
+        border-bottom: 1px solid $Light-grayish-blue;
+        display: flex;
+        flex-direction: column;
+
+        padding: 2rem 1.5rem 2rem 0;
+        .item-header {
+          display: flex;
+          cursor: pointer;
+          .item-title {
+            margin-left: auto;
+            // font-size: 1.6rem;
+            font-weight: 700;
+            transition: all 0.3s;
+
+            &:hover {
+              color: $Soft-red;
+            }
+          }
+
+          .item-icon {
+            align-self: center;
+            transition: all 0.3s;
+          }
+        }
+
+        .item-body {
+          height: 0;
+          display: none;
+          overflow: hidden;
+          transition: all 0.3s;
+          p {
+          }
+        }
+
+        &--active {
+          .item-header {
+            margin-bottom: 1.5rem;
+            .item-title {
+              color: $Very-dark-desaturated-blue;
+              &:hover {
+                color: $Very-dark-desaturated-blue;
+              }
+            }
+
+            .item-icon {
+              transform: rotate(180deg);
+            }
+          }
+
+          .item-body {
+            display: block;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

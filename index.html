@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="src/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="src/style.scss" />
+    <script type="module" src="src/app.js"></script>
+    <title>Frontend Mentor | FAQ Accordion Card</title>
+  </head>
+  <body> <div class="container">
+    <div class="card">
+      <div class="illustration">
+        
+
+        <picture>
+          <!-- <source media="(max-width: 900px)" srcset="src/images/illustration-woman-online-mobile.svg"> -->
+          <source media="(min-width: 900px)" srcset="src/images/illustration-woman-online-desktop.svg">
+          <img class="illustration-online" src="src/images/illustration-woman-online-mobile.svg" alt="illustration online">
+        </picture>
+        <img class="illustration-box" src="src/images/illustration-box-desktop.svg" alt="illustration box">
+      </div>
+      <div class="accordian">
+        <h4 class="accordian__header">FAQ</h4>
+        <ul class="accordian__list">
+          <li class="accordian__item">
+            <div class="item-header"><p class="item-title">How many team members can I invite?</p>
+              <img class="item-icon" src="src/images/icon-arrow-down.svg" alt="icon-arrow"></div>
+              <div class="item-body">
+                <p>You can invite up to 2 additional users on the Free plan. There is no limit on 
+                  team members for the Premium plan.</p>
+              </div>
+          </li>
+          <li class="accordian__item accordian__item--active">
+            <div class="item-header"><p class="item-title">What is the maximum file upload size?</p>
+              <img class="item-icon" src="src/images/icon-arrow-down.svg" alt="icon-arrow"></div>
+              <div class="item-body">
+                <p>No more than 2GB. All files in your account must fit your allotted storage space.</p>
+              </div>
+          </li>
+          <li class="accordian__item">
+            <div class="item-header"><p class="item-title">How do I reset my password?</p>
+              <img class="item-icon" src="src/images/icon-arrow-down.svg" alt="icon-arrow"></div>
+              <div class="item-body">
+                <p>Click “Forgot password” from the login page or “Change password” from your profile page.
+                  A reset link will be emailed to you.</p>
+              </div>
+          </li>
+          <li class="accordian__item">
+            <div class="item-header"><p class="item-title">Can I cancel my subscription?</p>
+              <img class="item-icon" src="src/images/icon-arrow-down.svg" alt="icon-arrow"></div>
+              <div class="item-body">
+                <p>Yes! Send us a message and we’ll process your request no questions asked.</p>
+              </div>
+          </li>
+          <li class="accordian__item">
+            <div class="item-header"><p class="item-title">Do you provide additional support?</p>
+              <img class="item-icon" src="src/images/icon-arrow-down.svg" alt="icon-arrow"></div>
+              <div class="item-body">
+                <p>Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
+              </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    </div>
+  </body>
+</html>
